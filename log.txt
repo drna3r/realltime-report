@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Need more Alexa data?  Find our APIs here: https://aws.amazon.com/alexa/ -->
+<ALEXA VER="0.9" URL="infosalamat.com/" HOME="0" AID="=" IDN="infosalamat.com/">
+<SD><POPULARITY URL="infosalamat.com/" TEXT="356779" SOURCE="panel"/><REACH RANK="434431"/><RANK DELTA="-3815481"/><COUNTRY CODE="IR" NAME="Iran" RANK="6249"/></SD></ALEXA>
