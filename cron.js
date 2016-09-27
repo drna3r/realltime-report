@@ -4,6 +4,7 @@ var http = require('http');
 const util = require('util');
 var parseString = require('xml2js').parseString;
 var https = require('https');
+var fs = require("fs");
 var siteprank = '1';
 var siteprankold = '1';
 
@@ -32,7 +33,8 @@ var request = http.request(options, function (res) {
 		siteprank = result.ALEXA.SD[0].POPULARITY[0].$.TEXT;
 		
 	});	
-	var fs = require("fs");
+	
+	/* Write to file 
 	var path = "c:\\nodejs\\log.txt";
 	fs.writeFile(path, data, function(error) {
 		 if (error) {
@@ -43,7 +45,10 @@ var request = http.request(options, function (res) {
 		 }
 	});
 		
-
+		*/
+		
+	console.log('\n'+'\n'+'................................................................');
+	
     });
 });
 
