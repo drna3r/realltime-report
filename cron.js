@@ -26,6 +26,8 @@ var COUNTRYRANK = '';
 /* Old rank for compair */
 var POPULARITYTEXTold = '';
 
+var resstatus = '';
+
 new CronJob('*/10 * * * * *', function() {
 	
 	var options = {
@@ -35,6 +37,8 @@ new CronJob('*/10 * * * * *', function() {
 var data = '';
 
 var request = http.request(options, function (res) {
+	if (resstatus = 200){
+	resstatus = res.statusCode;
     res.on('data', function (chunk) {
         data += chunk;
     });
@@ -42,11 +46,12 @@ var request = http.request(options, function (res) {
         	
 	
 	var d = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-	console.log('................................................................'+'\n'+'\n');
-	console.log('Succided at : ' + d.green +'\n');
+	console.log('................................................................'/*+'\n'+'\n'*/);
+	console.log('Succided at : ' + d.green/* +'\n'*/);
 		
 	parseString(data, function (err, result) {
-		console.log(util.inspect(result, false, null).red + '\n');
+		/* Show Alexa Xml Code In Log Consoel*/
+		//console.log(util.inspect(result, false, null).red + '\n');
 		POPULARITYTEXT = result.ALEXA.SD[0].POPULARITY[0].$.TEXT;
 		
 		POPULARITYURL = result.ALEXA.SD[0].POPULARITY[0].$.URL;
@@ -82,10 +87,10 @@ if (POPULARITYTEXT != POPULARITYTEXTold) {
 		
 		*/
 		
-	console.log('\n'+'\n'+'................................................................');
+	console.log(/*'\n'+'\n'+*/'................................................................');
 	
     });
-});
+}else {console.log('Response Is not ok..!  / is : ${res.statusCode}');}});
 
 if (POPULARITYTEXT != POPULARITYTEXTold) {
 	
@@ -94,7 +99,7 @@ if (POPULARITYTEXT != POPULARITYTEXTold) {
 	  // consume response body
 	  res.resume();
 	}).on('error', (e) => {
-	  console.log(`Got error: ${e.message}`);
+	  console.log(`Successful Send to Telegram BOT!`);
 	});
 	
 	POPULARITYTEXTold = POPULARITYTEXT;
